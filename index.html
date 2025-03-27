@@ -1,34 +1,34 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tito's cave AR Test</title>
-    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
-  </head>
-  <body>
-<H2>Tito's cave AR Test</H2>
-  <model-viewer src="ico.glb"
-                ios-src="ico.usdz"
-                alt="Titos Cave"
-                ar
-                auto-rotate
-                camera-controls
-                ar-modes="webxr scene-viewer quick-look" 
-                environment-image="neutral">   
-  </model-viewer>
- <script>
-        async function checkARCoreCompatibility() {
-            const modelViewer = document.getElementById('model-viewer');
-            const isARCoreSupported = await navigator.xr.isSessionSupported('immersive-ar');
-            if (!isARCoreSupported) {
-                modelViewer.removeAttribute('ar');
-                modelViewer.removeAttribute('ar-modes');
-                alert('Your device is not compatible with AR features. You can still view the 3D model.');
-            }
-        }
+    <title>Marker-Based AR with AR.js</title>
 
-        document.addEventListener('DOMContentLoaded', checkARCoreCompatibility);
-    </script>
-   </body>
+    <!-- A-Frame & AR.js Libraries -->
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://rawgit.com/jeromeetienne/AR.js/1.7.2/aframe/build/aframe-ar.min.js"></script>
+</head>
+<body style="margin: 0; overflow: hidden;">
+
+    <!-- AR Scene -->
+    <a-scene embedded arjs>
+        
+        <!-- Define the marker (Uses "Hiro" marker by default) -->
+        <a-marker type="pattern" url="pattern.patt">
+            <!-- 3D Model -->
+            <a-entity 
+                gltf-model="ico.glb" 
+                scale="1 1 1" 
+                position="0 0 0" 
+                rotation="0 0 0">
+            </a-entity>
+        </a-marker>
+
+        <!-- Camera -->
+        <a-camera-static></a-camera-static>
+
+    </a-scene>
+
+</body>
 </html>
