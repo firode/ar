@@ -1,35 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Marker-Based AR with AR.js</title>
+<!doctype HTML>
+<html>
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+<script src="js/aframe.min.js"></script>
+<script src="js/aframe-ar.js"></script>
+<body style="margin: 0px; overflow: hidden;">
 
-    <!-- A-Frame & AR.js Libraries -->
-    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
-    <script src="https://raw.githack.com/AR-js-org/AR.js/master/three.js/build/ar.js"></script>
+<a-scene embedded vr-mode-ui="enabled: false;" arjs="debugUIEnabled: false;">
 
-</head>
-<body style="margin: 0; overflow: hidden;">
-
-    <!-- AR Scene -->
-    <a-scene embedded arjs="debugUIEnabled: false;">
-        
-        <!-- Define the marker (Uses "Hiro" marker by default) -->
-        <a-marker type="pattern" url="./pattern.patt">
-            <!-- 3D Model -->
-            <a-entity 
-                gltf-model="ico.gltf" 
-                scale="1 1 1" 
-                position="0 0 0" 
-                rotation="0 0 0">
-            </a-entity>
-        </a-marker>
-
-        <!-- Camera -->
-        <a-camera-static></a-camera-static>
-
-    </a-scene>
-
+    <a-assets>
+        <a-asset-item id="tree" src="model/tree.gltf"></a-asset-item>
+	</a-assets>
+    
+    <a-marker type="pattern" url="marker/kanji.patt">
+        <a-entity   position="0 0 0" 
+                    rotation="0 0 0"
+                    scale="0.10 0.10 0.10"
+                    gltf-model="#tree" >
+        </a-entity>
+    </a-marker>
+    
+    <a-entity camera></a-entity>
+    
+</a-scene>
 </body>
 </html>
