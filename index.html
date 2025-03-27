@@ -1,27 +1,18 @@
-<!doctype HTML>
-<html>
-<link rel="icon" href="data:;base64,iVBORw0KGgo=">
-<script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/AR-js-org/AR.js@1.7.2/aframe/build/aframe-ar.min.js"></script>
-
-<body style="margin: 0px; overflow: hidden;">
-
-<a-scene embedded vr-mode-ui="enabled: false;" arjs="debugUIEnabled: false;">
-
-    <a-assets>
-        <a-asset-item id="tree" src="model/tree.gltf"></a-asset-item>
-	</a-assets>
-    
-    <a-marker type="pattern" url="marker/kanji.patt">
-        <a-entity   position="0 0 0" 
-                    rotation="0 0 0"
-                    scale="0.10 0.10 0.10"
-                    gltf-model="#tree" >
-        </a-entity>
-    </a-marker>
-    
-    <a-entity camera></a-entity>
-    
-</a-scene>
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AR.js Hiro Marker</title>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/AR-js-org/AR.js@1.7.2/aframe/build/aframe-ar.min.js"></script>
+</head>
+<body style="margin: 0; overflow: hidden;">
+    <a-scene embedded arjs>
+        <a-marker preset="hiro">
+            <a-entity gltf-model="model/tree.gltf" scale="1 1 1"></a-entity>
+        </a-marker>
+        <a-entity camera></a-entity>
+    </a-scene>
 </body>
 </html>
