@@ -12,13 +12,13 @@
 <body style="margin: 0; overflow: hidden;">
 
     <!-- AR Scene -->
-    <a-scene embedded arjs>
+    <a-scene embedded arjs="debugUIEnabled: false;">
         
         <!-- Define the marker (Uses "Hiro" marker by default) -->
         <a-marker type="pattern" url="pattern.patt">
             <!-- 3D Model -->
             <a-entity 
-                gltf-model="ico.glb" 
+                gltf-model="ico.gltf" 
                 scale="1 1 1" 
                 position="0 0 0" 
                 rotation="0 0 0">
