@@ -1,26 +1,29 @@
-<!doctype HTML>
-<html>
-<link rel="icon" href="data:;base64,iVBORw0KGgo=">
-<script src="js/aframe.min.js"></script>
-<script src="js/aframe-ar.js"></script>
-<body style="margin: 0px; overflow: hidden;">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Locar.js GLB Model</title>
+    <script src="https://unpkg.com/locar"></script>
+    <style>
+        body { margin: 0; overflow: hidden; }
+        canvas { display: block; }
+    </style>
+</head>
+<body>
+    <script>
+        // Initialize Locar.js
+        const scene = new Locar.Scene();
 
-<a-scene embedded vr-mode-ui="enabled: false;" arjs="debugUIEnabled: false;">
+        // Define the model and its location
+        scene.addModel({
+            url: "model/spinnrad.glb", // Replace with your actual GLB file URL
+            position: { lat: 53.5772, lon: 9.9689, alt: 10 }, // San Francisco example
+            scale: 1
+        });
 
-    <a-assets>
-        <a-asset-item id="tree" src="model/tree.gltf"></a-asset-item>
-	</a-assets>
-    
-    <a-marker type="pattern" url="marker/kanji.patt">
-        <a-entity   position="0 0 0" 
-                    rotation="0 0 0"
-                    scale="0.10 0.10 0.10"
-                    gltf-model="#tree" >
-        </a-entity>
-    </a-marker>
-    
-    <a-entity camera></a-entity>
-    
-</a-scene>
+        // Start the scene
+        scene.start();
+    </script>
 </body>
 </html>
